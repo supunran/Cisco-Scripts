@@ -18,7 +18,7 @@ ssh_pw = input('SSH Password: ')
 for device in devices:
     try:
         ssh_session = netmiko.ConnectHandler(device_type='cisco_ios', host=device, username=ssh_user, password=ssh_pw)
-        print ("Login to " + devices + " Successful")
+        print ("Login to " + device + " Successful")
         for command in commands:
             print(ssh_session.send_command(command) + "\n")
         ssh_session.disconnect()
