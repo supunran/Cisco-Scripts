@@ -2,17 +2,18 @@
 import netmiko
 import getpass
 
-#Opening text files, includes list of commands and devices 
-
+# Opening text files, which include list of devices and the commands to run 
 f = open ("a", "r")
 devices = f.read().splitlines()
 f.close()
 h = open ("c", "r")
 commands = h.read().splitlines()
 
+# Prompting for username and password to log into the device
 ssh_user = input("Enter username: ")
 ssh_pw = input('SSH Password: ')
 
+# Login into the devices and running commands
 for device in devices:
     try:
         ssh_session = netmiko.ConnectHandler(device_type='cisco_ios', host=device, username=ssh_user, password=ssh_pw)
@@ -26,3 +27,5 @@ for device in devices:
             netmiko.ssh_exception.NetMikoAuthenticationException,
             paramiko.ssh_exception.SSHException) as s_error:
         print(s_error)
+        
+# End of the script
