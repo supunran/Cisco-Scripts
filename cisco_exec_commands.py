@@ -2,7 +2,7 @@
 import netmiko
 import getpass
 
-# Opening text files, which include list of devices (f) and the commands (h) to run 
+# Opening text files, which include list of devices (a) and the commands (c) to run 
 f = open ("a", "r")
 devices = f.read().splitlines()
 f.close()
