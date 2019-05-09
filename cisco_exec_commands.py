@@ -1,6 +1,7 @@
 # Importing necessary libraries
 import netmiko
 import getpass
+import paramiko
 
 # Opening text files, which include list of devices (a) and the commands (c) to run 
 f = open ("a", "r")
